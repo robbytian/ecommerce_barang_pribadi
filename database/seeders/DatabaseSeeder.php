@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Category::create([
+            'nama_kategori' => 'Karya Seni'
+        ]);
+
+        Category::create([
+            'nama_kategori' => 'Pakaian'
+        ]);
+
+        Category::create([
+            'nama_kategori' => 'Piala dan Piagam'
+        ]);
+
+        Category::create([
+            'nama_kategori' => 'Buku'
+        ]);
+
+        Category::create([
+            'nama_kategori' => 'Tulisan dan Tanda Tangan'
+        ]);
+
+        User::create([
+            'name' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt("user"),
+        ]);
     }
 }
