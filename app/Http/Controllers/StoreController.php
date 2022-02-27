@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -10,17 +11,20 @@ class StoreController extends Controller
     public function index()
     {
         $kategoris = Category::all();
-        return view('product.index', compact('kategoris'));
+        $barangs = Barang::with('Kategori')->get();
+        return view('product.index', compact('kategoris', 'barangs'));
     }
 
     public function productList()
     {
+        $barangs = Barang::with('Kategori')->get();
         $kategoris = Category::all();
-        return view('product.store', compact('kategoris'));
+        return view('product.store', compact('kategoris', 'barangs'));
     }
 
-    public function detailProduct()
+    public function detailProduct(Barang $id)
     {
-        return view('product.detail');
+        $barang = $id->load('Kategori');
+        return view('product.detail', compact('barang'));
     }
 }

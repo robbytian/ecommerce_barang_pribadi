@@ -12,8 +12,6 @@
                             @foreach($kategoris as $kategori)
                             <li><a href="#">{{$kategori->nama_kategori}}</a></li>
                             @endforeach
-
-
                         </ul>
                     </nav>
                 </div>

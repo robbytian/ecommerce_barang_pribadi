@@ -46,7 +46,7 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="/fileKarya">
+                <a class="nav-link" href="/karya">
                     <i class="fas fa-fw fa-file"></i>
                     <span>Kepemilikan Karya</span></a>
             </li>

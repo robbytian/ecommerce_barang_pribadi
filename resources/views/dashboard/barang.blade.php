@@ -31,13 +31,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($barangs as $barang)
                             <tr>
-                                <td>Foto Selfie</td>
-                                <td>Karya Seni</td>
-                                <td>Kepemilikan Karya</td>
-                                <td><span class="badge badge-success">Belum Terjual</span></td>
+                                <td>{{$barang->nama_barang}}</td>
+                                <td>{{$barang->Kategori->nama_kategori}}</td>
+                                <td>{{$barang->jenis}}</td>
+                                <td><span class="badge badge-success">{{$barang->status}}</span></td>
                                 <td><a href="#" class="btn btn-sm btn-warning">Edit</a>&nbsp;&nbsp;<a href="#" class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

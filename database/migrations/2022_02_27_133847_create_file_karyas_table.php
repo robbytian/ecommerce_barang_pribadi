@@ -14,7 +14,7 @@ class CreateFileKaryasTable extends Migration
     public function up()
     {
         Schema::create('file_karyas', function (Blueprint $table) {
-            $table->id();
+            $table->char('code', 10)->primary();
             $table->foreignId('barang_id');
             $table->string('file');
             $table->foreignId('pemilik');

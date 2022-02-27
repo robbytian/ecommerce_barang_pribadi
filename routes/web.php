@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileKaryaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -29,13 +30,13 @@ Route::get('/login', [AuthController::class, 'loginPage'])->name('login')->middl
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/karya', [FileKaryaController::class, 'karya']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/home', [StoreController::class, 'index']);
     Route::get('/product', [StoreController::class, 'productList']);
-    Route::get('/product/detail', [StoreController::class, 'detailProduct']);
+    Route::get('/product/{id}/detail', [StoreController::class, 'detailProduct']);
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::resource('/barang', BarangController::class);
     Route::get('/penjualan', [DashboardController::class, 'penjualan']);
     Route::get('/pembelian', [DashboardController::class, 'pembelian']);
-    Route::get('/fileKarya', [DashboardController::class, 'karya']);
 });

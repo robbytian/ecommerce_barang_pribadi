@@ -33,21 +33,23 @@
             </div>
             <div class="col-lg-9 col-md-8 col-12">
                 <div class="row">
+                    @foreach($barangs as $barang)
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="single-product">
                             <div class="product-img">
-                                <a href="/product/detail">
-                                    <img src="./assets/img/products/p1.jpg" class="img-fluid" />
+                                <a href="/product/{{$barang->id}}/detail">
+                                    <img src="{{asset('/foto_barang/'.$barang->foto)}}" class="img-fluid" />
                                 </a>
                             </div>
                             <div class="product-content">
-                                <h3><a href="/product/detail">Cool &amp; Awesome Item</a></h3>
+                                <h3><a href="/product/detail">{{$barang->nama_barang}}</a></h3>
                                 <div class="product-price">
-                                    <span>$57.00</span>
+                                    <span>Rp{{$barang->harga}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
 
                 </div>
