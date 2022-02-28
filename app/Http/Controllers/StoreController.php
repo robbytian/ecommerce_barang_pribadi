@@ -11,7 +11,7 @@ class StoreController extends Controller
     public function index()
     {
         $kategoris = Category::all();
-        $barangs = Barang::with('Kategori')->get();
+        $barangs = Barang::with('Kategori')->take(4)->orderBy('created_at', 'desc')->get();
         return view('product.index', compact('kategoris', 'barangs'));
     }
 

@@ -68,7 +68,7 @@ class BarangController extends Controller
             $kode = Str::random(10);
             $fileKarya = $request->file('file');
             $nameKarya = time() . rand(1, 100) . '.' . $fileKarya->extension();
-            $fileKarya->move(public_path('fileKarya'), $name);
+            $fileKarya->move(public_path('FileKarya'), $nameKarya);
             FileKarya::create([
                 'code' => $kode,
                 'barang_id' => $barang->id,

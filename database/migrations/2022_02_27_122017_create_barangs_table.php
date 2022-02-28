@@ -19,7 +19,7 @@ class CreateBarangsTable extends Migration
             $table->foreignId('category_id');
             $table->string('nama_barang');
             $table->integer('harga');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('jenis');
             $table->string('foto');
             $table->string('status');
