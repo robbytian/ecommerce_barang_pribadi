@@ -35,9 +35,15 @@
 
                     </div>
                     <div class="row">
+                        @if($barang->pemilik != auth()->user()->id)
                         <div class="col-md-5">
                             <button type="button" class="btn btn-primary btn-block" data-target="#exampleModalCenter" data-toggle="modal">Beli</button>
                         </div>
+                        @else
+                        <div class="col-md-5">
+                            <button type="button" class="btn btn-warning btn-block">Edit Barang</button>
+                        </div>
+                        @endif
                     </div>
                     <br>
                     <div class="product-categories">
@@ -48,6 +54,10 @@
                         <ul>
                             <li class="categories-title">Jenis Barang :</li>
                             <li><a href="#">{{$barang->jenis}}</a></li>
+                        </ul>
+                        <ul>
+                            <li class="categories-title">Pemilik Barang :</li>
+                            <li><a href="#">{{$barang->Pemilik->name}}</a></li>
                         </ul>
                     </div>
 
